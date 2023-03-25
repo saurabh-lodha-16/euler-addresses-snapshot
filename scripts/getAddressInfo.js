@@ -47,7 +47,9 @@ function saveAccountStatusesToCsv(filename, data) {
 async function main() {
   const addresses = await readAddressesFromFile("addresses.csv");
   const SimpleLens = await hre.ethers.getContractFactory("EulerSimpleLens");
-  const simpleLensContractInstance = SimpleLens.attach(EulerAddresses.simpleLens);
+  const simpleLensContractInstance = SimpleLens.attach(
+    EulerAddresses.simpleLens
+  );
 
   let completedRequests = 0;
   let startTime = null;
@@ -72,7 +74,10 @@ async function main() {
     ],
   };
 
-  const spinner = ora({ text: "Fetching account statuses...", spinner: bigSpinner }).start();
+  const spinner = ora({
+    text: "Fetching account statuses...",
+    spinner: bigSpinner,
+  }).start();
 
   const updateProgress = () => {
     completedRequests += 1;
@@ -83,7 +88,8 @@ async function main() {
 
     const progress = (completedRequests / addresses.length) * 100;
     const elapsedTime = Date.now() - startTime;
-    const estimatedTotalTime = (elapsedTime / completedRequests) * addresses.length;
+    const estimatedTotalTime =
+      (elapsedTime / completedRequests) * addresses.length;
     const remainingTime = Math.round((estimatedTotalTime - elapsedTime) / 1000);
 
     spinner.text = `Progress: ${progress.toFixed(2)}% (${completedRequests}/${
@@ -92,7 +98,9 @@ async function main() {
   };
 
   const accountStatusPromises = addresses.map(async (address) => {
-    const accountStatus = await simpleLensContractInstance.getAccountStatus(address);
+    const accountStatus = await simpleLensContractInstance.getAccountStatus(
+      address
+    );
     updateProgress();
     return { address, ...accountStatus };
   });
