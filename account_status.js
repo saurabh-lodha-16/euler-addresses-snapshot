@@ -42092,7 +42092,7 @@ function displayTableData(data) {
     return;
   }
   tableBody.innerHTML = "";
-  data.forEach((row) => {
+  data.forEach((row, index) => {
     const tr = document.createElement("tr");
     Object.values(row).forEach((val, index) => {
       const td = document.createElement("td");
@@ -42105,6 +42105,10 @@ function displayTableData(data) {
       }
       tr.appendChild(td);
     });
+    const serialTd = document.createElement("td");
+    serialTd.textContent = index + 1;
+    serialTd.classList.add("serial-number-column");
+    tr.insertBefore(serialTd, tr.firstChild);
     tableBody.appendChild(tr);
   });
 }
