@@ -26,7 +26,7 @@ fs.createReadStream(inputFilePath)
 
     // create a new object with updated values and push it to outputData array
     const newData = {
-      Address: row.Address,
+      Address: row.Address.toLowerCase(),
       "Collateral Value": collateralValue,
       "Liability Value": liabilityValue,
       "Health Factor": healthFactor,

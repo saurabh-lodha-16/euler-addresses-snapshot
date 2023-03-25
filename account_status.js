@@ -42119,15 +42119,13 @@ const searchInput = document.getElementById("search-input");
 if (!searchInput) {
   console.error("Search input element not found");
 } else {
-  searchInput.addEventListener("keyup", () => {
-    const filter = searchInput.value.toUpperCase();
+  searchInput.addEventListener("input", () => {
+    const filter = searchInput.value.toLowerCase();
     const tableRows = document.querySelectorAll(
       "#account-status-table tbody tr"
     );
     tableRows.forEach((row) => {
-      const address = row
-        .getElementsByTagName("td")[0]
-        .textContent.toUpperCase();
+      const address = row.cells[1].textContent.toLowerCase();
       if (address.includes(filter)) {
         row.style.display = "";
       } else {
