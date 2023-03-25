@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Statuses</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .search-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+      }
+
+      .search-input {
+        padding: 5px 10px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+      }
+
+      th:first-child,
+      td:first-child {
+        border-left: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tr:hover {
+        background-color: #ddd;
+      }
+
+      td:last-child {
+        text-align: right;
+      }
+
+      td:first-child {
+        font-family: monospace;
+        font-weight: bold;
+        color: #666;
+      }
+
+      h3 {
+        font-size: 36px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Euler All Account's Status before hack</h3>
+      <div class="search-container">
+        <input
+          id="search-input"
+          class="search-input"
+          type="text"
+          placeholder="Search by address..."
+        />
+      </div>
+      <table id="account-status-table">
+        <thead>
+          <tr>
+            <th>Account Address</th>
+            <th>Collateral Value (in ETH)</th>
+            <th>Liability Value (in ETH)</th>
+            <th>Health Factor</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Data will be populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+    <script src="account_status.js"></script>
+  </body>
+</html>
