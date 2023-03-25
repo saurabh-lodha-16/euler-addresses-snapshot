@@ -4,7 +4,7 @@ require("dotenv").config();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
-    version: "0.8.0",
+    version: "0.8.10",
     settings: {
       optimizer: {
         enabled: true,
@@ -19,6 +19,7 @@ module.exports = {
     hardhat: {
       forking: {
         url: process.env.INFURA_RPC_URL,
+        blockNumber: 16817995,
       },
     },
   },
