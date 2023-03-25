@@ -81,11 +81,29 @@
       .serial-number-column {
         font-weight: bold;
       }
+
+      .warning {
+        border: 1px solid #ff4f4f;
+        color: #ff4f4f;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .large-column {
+        width: 200px;
+        min-width: 200px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h4>Euler All Account's Status before hack</h4>
+
+      <div class="warning">
+        <p>These figures are alpha and should not be relied upon.</p>
+      </div>
       <div class="search-container">
         <input
           id="search-input"
@@ -99,8 +117,10 @@
           <tr>
             <th>Sr. No.</th>
             <th>Account Address</th>
-            <th>Collateral Value (in ETH)</th>
-            <th>Liability Value (in ETH)</th>
+            <th class="large-column">
+              Risk Adjusted Collateral Value (in ETH)
+            </th>
+            <th class="large-column">Risk Adjusted Liability Value (in ETH)</th>
             <th>Health Factor</th>
           </tr>
         </thead>
