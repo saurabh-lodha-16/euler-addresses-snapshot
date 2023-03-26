@@ -42086,6 +42086,11 @@ const tableData = [
 ];
 
 function displayTableData(data) {
+  data.sort((a, b) => {
+    const addressA = a.Address.toLowerCase();
+    const addressB = b.Address.toLowerCase();
+    return addressA < addressB ? -1 : addressA > addressB ? 1 : 0;
+  });
   const tableBody = document.getElementById("table-body");
   if (!tableBody) {
     console.error("Table body element not found");
